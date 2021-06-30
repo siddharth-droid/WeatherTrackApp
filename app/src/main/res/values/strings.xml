@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Weather app 1</string>
+    <string name="fetching">fetching</string>
+    <string name="nothing">nothing</string>
+</resources>
