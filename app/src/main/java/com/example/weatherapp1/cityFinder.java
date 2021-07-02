@@ -33,7 +33,7 @@ public class cityFinder extends AppCompatActivity {
                 String newcity  = editText.getText().toString();
                 Intent intent = new Intent(cityFinder.this,MainActivity.class);
                 intent.putExtra("City",newcity);
-
+                startActivity(intent);
 
                 return false;
             }
