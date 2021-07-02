@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                 RequestParams params = new RequestParams();
                 params.put("lat", latitude);
                 params.put("lon", longitude);
-                params.put("appid", APP_ID); ///////////////any error check here
+                params.put("appid", APP_ID);
                 letsdosomenetworking(params);
             }
 
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onProviderDisabled(String provider) {
-//                Toast.makeText(MainActivity.this, "Unable to get location!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Unable to get location!", Toast.LENGTH_SHORT).show();
             }
         };
 
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Permission Granted!", Toast.LENGTH_SHORT).show();
                 getWeatherforCurrentLocation();
             } else {
-//                Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Permission denied!", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -148,8 +148,8 @@ public class MainActivity extends AppCompatActivity {
         client.get(WEATHER_URL, params, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                Toast.makeText(MainActivity.this, "Data collected successfully!", Toast.LENGTH_SHORT).show();
-                weatherData weatherD = weatherData.fromJson(response); /////////////check here too if any error
+                Toast.makeText(MainActivity.this, "Got location successfully!", Toast.LENGTH_SHORT).show();
+                weatherData weatherD = weatherData.fromJson(response);
                 updateUI(weatherD);
 
 //                super.onSuccess(statusCode, headers, response);
