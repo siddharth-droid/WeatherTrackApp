@@ -16,19 +16,16 @@ public class weatherData {
             weatherD.mweathertype = jsonObject.getJSONArray("weather").getJSONObject(0).getString("main");
             weatherD.micon = updateweatherIcon(weatherD.mcondition);
             double tempresult = jsonObject.getJSONObject("main").getDouble("temp") - 273.15;
-            int roundedvalue = (int)Math.rint(tempresult);
+            int roundedvalue = (int) Math.rint(tempresult);
             weatherD.mtemperature = Integer.toString(roundedvalue);
             return weatherD;
-        }
-
-        catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private static String updateweatherIcon(int condition)
-    {
+    private static String updateweatherIcon(int condition) {
         if (condition >= 0 && condition <= 300) {
             return "thunderstrom1";
         } else if (condition >= 300 && condition <= 500) {
